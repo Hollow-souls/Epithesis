@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.wbu.dao.TeacherDao">
+    <resultMap id="teacherMap" type="Teacher">
+        <id column="teacher_id" property="teacherId"></id>
+        <result column="teacher_pwd" property="teacherPwd"></result>
+        <result column="teacher_name" property="teacherName"></result>
+        <result column="teacher_gender" property="teacherGender"></result>
+        <result column="teacher_tel" property="teacherTel"></result>
+        <result column="teacher_faculty" property="teacherFaculty"></result>
+    </resultMap>
+
+    <select id="selectById" resultMap="teacherMap">
+        select teacher_id,
+               teacher_pwd,
+               teacher_name,
+               teacher_gender,
+               teacher_tel,
+               teacher_faculty
+        from teacher where teacher_id=#{teacherId}
+    </select>
+</mapper>

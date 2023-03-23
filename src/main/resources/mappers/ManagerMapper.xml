@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.wbu.dao.ManagerDao">
+    <resultMap id="managerMap" type="Manager">
+        <id column="mgr_id" property="mgrId"></id>
+        <result column="mgr_pwd" property="mgrPwd"></result>
+        <result column="mgr_name" property="mgrName"></result>
+        <result column="mgr_gender" property="mgrGender"></result>
+        <result column="mgr_age" property="mgrAge"></result>
+        <result column="mgr_tel" property="mgrTel"></result>
+    </resultMap>
+
+    <select id="selectById" resultMap="managerMap">
+        select mgr_id,
+               mgr_pwd,
+               mgr_name,
+               mgr_gender,
+               mgr_age,
+               mgr_tel
+        from manager where mgr_id=#{mgrId}
+    </select>
+</mapper>

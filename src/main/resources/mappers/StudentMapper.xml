@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.wbu.dao.StudentDao">
+    <resultMap id="studentMap" type="Student">
+        <id column="stu_id" property="stuId"></id>
+        <result column="stu_pwd" property="stuPwd"></result>
+        <result column="stu_name" property="stuName"></result>
+        <result column="stu_gender" property="stuGender"></result>
+        <result column="stu_class" property="stuClass"></result>
+        <result column="stu_adviser" property="stuAdviser"></result>
+        <result column="stu_internship" property="stuInternship"></result>
+        <result column="stu_faculty" property="stuFaculty"></result>
+    </resultMap>
+
+    <select id="selectById" resultMap="studentMap">
+        select stu_id,
+               stu_pwd,
+               stu_name,
+               stu_gender,
+               stu_class,
+               stu_adviser,
+               stu_internship,
+               stu_faculty
+        from student where stu_id=#{stuId}
+    </select>
+</mapper>
