@@ -25,4 +25,9 @@
                stu_faculty
         from student where stu_id=#{stuId}
     </select>
+
+    <insert id="insertStudent">
+        insert into student (stu_id,stu_pwd,stu_name,stu_gender,stu_class,stu_adviser,stu_internship,stu_faculty)
+        values (#{stuId},#{stuPwd},#{stuName},#{stuGender},#{stuClass},#{stuAdviser},#{stuInternship},#{stuFaculty})
+    </insert>
 </mapper>

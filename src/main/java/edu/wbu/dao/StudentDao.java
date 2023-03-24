@@ -1,7 +1,6 @@
 package edu.wbu.dao;
 
 import edu.wbu.pojo.Student;
-import edu.wbu.pojo.Teacher;
 
 /**
  * @author shkstart
@@ -9,4 +8,6 @@ import edu.wbu.pojo.Teacher;
  */
 public interface StudentDao {
     public Student selectById(String stuId);
+
+    public int insertStudent(Student student);
 }
