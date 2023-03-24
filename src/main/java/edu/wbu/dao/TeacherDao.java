@@ -8,4 +8,6 @@ import edu.wbu.pojo.Teacher;
  */
 public interface TeacherDao {
     public Teacher selectById(String teacherId);
+
+    public int insertTeacher(Teacher teacher);
 }

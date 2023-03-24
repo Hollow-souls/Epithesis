@@ -21,4 +21,9 @@
                teacher_faculty
         from teacher where teacher_id=#{teacherId}
     </select>
+
+    <insert id="insertTeacher">
+        insert into teacher (teacher_id,teacher_pwd,teacher_name,teacher_gender,teacher_tel,teacher_faculty)
+        values (#{teacherId},#{teacherPwd},#{teacherName},#{teacherGender},#{teacherTel},#{teacherFaculty})
+    </insert>
 </mapper>
