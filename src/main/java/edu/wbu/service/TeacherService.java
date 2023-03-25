@@ -9,4 +9,6 @@ import edu.wbu.pojo.Teacher;
  */
 public interface TeacherService {
     public ResultVO addTeacher(Teacher teacher);
+
+    public ResultVO listAllTeacher();
 }

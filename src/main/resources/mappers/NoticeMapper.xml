@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.wbu.dao.NoticeDao">
+    <resultMap id="noticeMap" type="Notice">
+        <id column="mgr_id" property="mgrId"></id>
+        <result column="notice_date" property="noticeDate"></result>
+        <result column="notice_content" property="noticeContent"></result>
+    </resultMap>
+
+    <select id="selectAll" resultMap="noticeMap">
+        select mgr_id,
+               notice_date,
+               notice_content
+        from notice
+    </select>
+</mapper>

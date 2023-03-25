@@ -4,10 +4,7 @@ import edu.wbu.pojo.ResultVO;
 import edu.wbu.pojo.Student;
 import edu.wbu.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author shkstart
@@ -24,6 +21,12 @@ public class StudentController {
     @PostMapping("/addStudent")
     public ResultVO addStudent(Student student){
         ResultVO resultVO=studentService.addStudent(student);
+        return resultVO;
+    }
+
+    @GetMapping("/selectAllStudent")
+    public ResultVO selectAllStudent(){
+        ResultVO resultVO=studentService.listAllStudent();
         return resultVO;
     }
 }

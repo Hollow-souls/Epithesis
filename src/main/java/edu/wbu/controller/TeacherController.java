@@ -5,10 +5,7 @@ import edu.wbu.pojo.ResultVO;
 import edu.wbu.pojo.Teacher;
 import edu.wbu.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author shkstart
@@ -25,6 +22,12 @@ public class TeacherController {
     @PostMapping("/addTeacher")
     public ResultVO addTeacher(Teacher teacher){
         ResultVO resultVO=teacherService.addTeacher(teacher);
+        return resultVO;
+    }
+
+    @GetMapping("/selectAllTeacher")
+    public ResultVO selectAllTeacher(){
+        ResultVO resultVO=teacherService.listAllTeacher();
         return resultVO;
     }
 }

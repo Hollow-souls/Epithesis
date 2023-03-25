@@ -8,6 +8,8 @@ import edu.wbu.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author shkstart
  * @create 2023-03-2023/3/24-11:20
@@ -28,6 +30,13 @@ public class TeacherServiceImpl implements TeacherService {
         }else {
             resultVO =new ResultVO(10001,"教师信息添加失败",null);
         }
+        return resultVO;
+    }
+
+    @Override
+    public ResultVO listAllTeacher() {
+        List<Teacher> teachers=teacherDao.selectAll();
+        ResultVO resultVO=new ResultVO(10000,"查询教师列表成功",teachers);
         return resultVO;
     }
 }
