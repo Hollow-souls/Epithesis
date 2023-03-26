@@ -3,7 +3,7 @@ package edu.wbu.service;
 import edu.wbu.pojo.ResultVO;
 
 /**
- * @author shkstart
+ * @author yog
  * @create 2023-03-2023/3/22-15:51
  */
 public interface UserService {

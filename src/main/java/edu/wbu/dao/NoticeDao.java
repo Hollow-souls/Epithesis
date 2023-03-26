@@ -5,7 +5,7 @@ import edu.wbu.pojo.Notice;
 import java.util.List;
 
 /**
- * @author shkstart
+ * @author yog
  * @create 2023-03-2023/3/25-18:52
  */
 public interface NoticeDao {
