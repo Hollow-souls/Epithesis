@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.wbu.dao.SchedulingDao">
+    <resultMap id="schedulingMap" type="Scheduling">
+        <id column="task" property="task"></id>
+        <result column="task_begin" property="taskBegin"></result>
+        <result column="task_end" property="taskEnd"></result>
+    </resultMap>
+
+    <update id="updateTime">
+        update scheduling set task_begin=#{taskBegin},task_end=#{taskEnd} WHERE task=#{task};
+    </update>
+</mapper>

@@ -3,6 +3,7 @@ package edu.wbu.service;
 import edu.wbu.pojo.Notice;
 import edu.wbu.pojo.ResultVO;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,4 +12,6 @@ import java.util.List;
  */
 public interface NoticeService {
     public ResultVO listAllNotice();
+
+    public ResultVO addNotice(String mgrId, Date noticeDate,String noticeContent);
 }

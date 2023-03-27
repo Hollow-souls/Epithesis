@@ -15,4 +15,9 @@
                notice_content
         from notice
     </select>
+
+    <insert id="insertNotice">
+        insert into notice (mgr_id,notice_date,notice_content)
+        values (#{mgrId},#{noticeDate},#{noticeContent})
+    </insert>
 </mapper>

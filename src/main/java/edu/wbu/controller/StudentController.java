@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author yog
+ * @author yogs
  * @create 2023-03-2023/3/24-17:01
  */
 

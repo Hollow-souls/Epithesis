@@ -4,10 +4,9 @@ import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import edu.wbu.pojo.ResultVO;
 import edu.wbu.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 /**
  * @author yog
@@ -24,6 +23,12 @@ public class NoticeController {
     @GetMapping("/selectAllNotice")
     public ResultVO selectAllNotice(){
         ResultVO resultVO=noticeService.listAllNotice();
+        return resultVO;
+    }
+
+    @PostMapping("/addNotice")
+    public ResultVO addNotice(String mgrId, Date noticeDate,String noticeContent){
+        ResultVO resultVO=noticeService.addNotice(mgrId,noticeDate,noticeContent);
         return resultVO;
     }
 }
