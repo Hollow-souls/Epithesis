@@ -42,4 +42,12 @@
                stu_faculty
         from student
     </select>
+
+    <update id="updatePwd">
+        update student set stu_pwd=#{stuPwd} WHERE stu_id=#{stuId};
+    </update>
+
+    <update id="updateAdviser">
+        update student set stu_adviser=#{stuAdviser} where stu_id=#{stuId};
+    </update>
 </mapper>

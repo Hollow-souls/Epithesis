@@ -1,6 +1,7 @@
 package edu.wbu.dao;
 
 import edu.wbu.pojo.Student;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,4 +15,8 @@ public interface StudentDao {
     public int insertStudent(Student student);
 
     public List<Student> selectAll();
+
+    public int updatePwd(@Param("stuId") String stuId,@Param("stuPwd") String stuPwd);
+
+    public int updateAdviser(@Param("stuId") String stuId,@Param("stuAdviser") String stuAdviser);
 }

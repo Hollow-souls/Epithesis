@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.wbu.dao.ApplyDao">
+    <resultMap id="applyMap" type="Apply">
+        <id column="teacher_id" property="teacherId"></id>
+        <result column="stu_id" property="stuId"></result>
+    </resultMap>
+
+    <insert id="insertApply">
+        insert into apply(teacher_id,stu_id)
+        values(#{teacherId},#{stuId});
+    </insert>
+
+    <delete id="deleteApply">
+        delete from apply where stu_id=#{stuId};
+    </delete>
+
+    <select id="selectAllApply" resultMap="applyMap">
+        select teacher_id,
+               stu_id
+        from apply where teacher_id=#{teacherId};
+    </select>
+</mapper>

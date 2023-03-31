@@ -9,9 +9,14 @@ import edu.wbu.pojo.Student;
 import edu.wbu.pojo.Teacher;
 import edu.wbu.service.UserService;
 import edu.wbu.utils.MD5Utils;
+import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 
 /**
@@ -41,12 +46,24 @@ public class UserServiceImpl implements UserService {
             password=student==null?null:student.getStuPwd();
         }
 
+
         loginPwd=MD5Utils.md5(loginPwd);
         System.out.println(loginPwd);
         if(password==null){
             return new ResultVO(1001,"账户不存在",null);
         }else if(password.equals(loginPwd)){
-            return new ResultVO(1002,"登录成功",null);
+            JwtBuilder builder = Jwts.builder();
+            HashMap<String,Object> map = new HashMap<>();
+            map.put("role",role);
+            String token = builder.setSubject(username)     //设置subject，就是token中携带的数据
+                    .setId(username)           // token的id---可以设置当前用户id
+                    .setClaims(map)         // 设置当前用户的角色、权限等信息
+                    .setIssuedAt(new Date())                //设置生成时间
+                    .setExpiration(new Date( System.currentTimeMillis()+ 24*60*60*1000 )) //设置过期时间
+                    .signWith( SignatureAlgorithm.HS256,"yogpop" )    //设置加密方式，和加密的 key
+                    .compact();
+            System.out.println(token);
+            return new ResultVO(10000,"登录成功",token);
         }else{
             return new ResultVO(1003,"密码错误",null);
         }

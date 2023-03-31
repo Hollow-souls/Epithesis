@@ -29,4 +29,10 @@ public class StudentController {
         ResultVO resultVO=studentService.listAllStudent();
         return resultVO;
     }
+
+    @PostMapping("/updatePwd")
+    public ResultVO updatePwd(String stuId,String stuPwd){
+        ResultVO resultVO=studentService.updatePwd(stuId,stuPwd);
+        return resultVO;
+    }
 }

@@ -12,4 +12,6 @@ public interface StudentService {
     public ResultVO addStudent(Student student);
 
     public ResultVO listAllStudent();
+
+    public ResultVO updatePwd(String stuId,String stuPwd);
 }

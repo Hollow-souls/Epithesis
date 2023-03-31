@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.wbu.dao.PaperDao">
+    <resultMap id="paperMap" type="Paper">
+        <id column="stu_id" property="stuId"></id>
+        <result column="stu_paper" property="stuPaper"></result>
+    </resultMap>
+
+    <update id="updatePaper">
+        update paper set stu_paper=#{stuPaper} WHERE stu_id=#{stuId};
+    </update>
+
+    <insert id="insertPaper">
+        insert into paper (stu_id,stu_paper)
+        values (#{stuId},#{stuPaper});
+    </insert>
+
+    <select id="selectStu" resultMap="paperMap">
+        select stu_id,stu_paper from paper where stu_id=#{stuId};
+    </select>
+
+    <select id="selectPaper" resultType="String">
+        select stu_paper from paper where stu_id=#{stuId};
+    </select>
+</mapper>

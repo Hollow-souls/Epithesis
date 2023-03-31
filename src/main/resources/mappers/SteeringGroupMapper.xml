@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.wbu.dao.SteeringGroupDao">
+    <resultMap id="applyMap" type="Apply">
+        <id column="teacher_id" property="teacherId"></id>
+        <result column="stu_id" property="stuId"></result>
+    </resultMap>
+
+    <insert id="insertSteeringGroup">
+        insert into steering_group(teacher_id,stu_id)
+        values(#{teacherId},#{stuId});
+    </insert>
+</mapper>
